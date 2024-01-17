@@ -1,5 +1,7 @@
 export interface PostInterface {
     id: number;
-    titre: string;
-    contenu: string;
+    title: string;
+    content: string;
+    author: string;
+    date: Date;
 }

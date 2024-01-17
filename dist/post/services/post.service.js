@@ -25,13 +25,19 @@ let PostService = class PostService {
         data_1.default.map((postInfo) => this.create(this.formatApiData(postInfo)));
     }
     formatApiData(dataElement) {
-        if (!dataElement.id || !dataElement.titre || !dataElement.contenu) {
+        if (!dataElement.id ||
+            !dataElement.title ||
+            !dataElement.content ||
+            !dataElement.author ||
+            !dataElement.date) {
             return;
         }
         const o = new post_model_1.Post();
         o.id = parseInt(dataElement.id);
-        o.titre = dataElement.titre;
-        o.contenu = dataElement.contenu;
+        o.title = dataElement.title;
+        o.content = dataElement.content;
+        o.author = dataElement.author;
+        o.date = dataElement.Date;
         return o;
     }
     findAll() {

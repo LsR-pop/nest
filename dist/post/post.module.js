@@ -10,12 +10,15 @@ exports.PostModule = void 0;
 const common_1 = require("@nestjs/common");
 const post_service_1 = require("./services/post.service");
 const post_controller_1 = require("./post.controller");
+const file_service_1 = require("../shared/services/file.service");
+const string_service_1 = require("../shared/services/string.service");
 let PostModule = class PostModule {
 };
 exports.PostModule = PostModule;
 exports.PostModule = PostModule = __decorate([
     (0, common_1.Module)({
-        providers: [post_service_1.PostService],
+        imports: [file_service_1.FileService, string_service_1.StringService],
+        providers: [post_service_1.PostService, file_service_1.FileService, string_service_1.StringService],
         controllers: [post_controller_1.PostController],
     })
 ], PostModule);

@@ -9,4 +9,9 @@ import { StringService } from 'src/shared/services/string.service';
   providers: [UserService, FileService, StringService],
   controllers: [UserController],
 })
-export class UserModule {}
+export class UserModule {
+  constructor(
+    private readonly fileservice: FileService,
+    private readonly stringservice: StringService,
+  ) {}
+}
