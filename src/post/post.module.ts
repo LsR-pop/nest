@@ -5,6 +5,7 @@ import { FileService } from 'src/shared/services/file.service';
 import { StringService } from 'src/shared/services/string.service';
 
 @Module({
+  imports: [FileService, StringService],
   providers: [PostService, FileService, StringService],
   controllers: [PostController],
 })
