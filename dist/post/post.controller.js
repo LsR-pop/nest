@@ -12,26 +12,26 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserController = void 0;
+exports.PostController = void 0;
 const common_1 = require("@nestjs/common");
-const user_service_1 = require("./services/user.service");
-let UserController = class UserController {
-    constructor(userService) {
-        this.userService = userService;
+const post_service_1 = require("./services/post.service");
+let PostController = class PostController {
+    constructor(postService) {
+        this.postService = postService;
     }
-    returnAllUsers() {
-        console.log(this.userService.findAll());
-        return JSON.stringify(this.userService.findAll());
+    returnAllPosts() {
+        console.log(this.postService.findAll());
+        return JSON.stringify(this.postService.findAll());
     }
     returnOneById(param) {
         console.log(param.id);
-        console.log(this.userService.find(parseInt(param.id)));
-        return JSON.stringify(this.userService.find(parseInt(param.id)));
+        console.log(this.postService.find(parseInt(param.id)));
+        return JSON.stringify(this.postService.find(parseInt(param.id)));
     }
     returnRequestObject(request) {
         console.log(request);
     }
-    redirectUser() {
+    redirectPost() {
         console.log('redirecting...');
     }
     redirected() {
@@ -41,40 +41,40 @@ let UserController = class UserController {
         console.log(bodycontent);
     }
 };
-exports.UserController = UserController;
+exports.PostController = PostController;
 __decorate([
     (0, common_1.Get)('all'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", String)
-], UserController.prototype, "returnAllUsers", null);
+], PostController.prototype, "returnAllPosts", null);
 __decorate([
     (0, common_1.Get)('findone/:id'),
     __param(0, (0, common_1.Param)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
-], UserController.prototype, "returnOneById", null);
+], PostController.prototype, "returnOneById", null);
 __decorate([
     (0, common_1.Get)('log-request'),
     __param(0, (0, common_1.Req)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
-], UserController.prototype, "returnRequestObject", null);
+], PostController.prototype, "returnRequestObject", null);
 __decorate([
     (0, common_1.Get)('redirect-301'),
     (0, common_1.Redirect)('redirected', 301),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], UserController.prototype, "redirectUser", null);
+], PostController.prototype, "redirectPost", null);
 __decorate([
     (0, common_1.Get)('redirected'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", String)
-], UserController.prototype, "redirected", null);
+], PostController.prototype, "redirected", null);
 __decorate([
     (0, common_1.Post)('add'),
     (0, common_1.HttpCode)(201),
@@ -83,9 +83,9 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
-], UserController.prototype, "postNewMember", null);
-exports.UserController = UserController = __decorate([
-    (0, common_1.Controller)('user'),
-    __metadata("design:paramtypes", [user_service_1.UserService])
-], UserController);
-//# sourceMappingURL=user.controller.js.map
+], PostController.prototype, "postNewMember", null);
+exports.PostController = PostController = __decorate([
+    (0, common_1.Controller)('post'),
+    __metadata("design:paramtypes", [post_service_1.PostService])
+], PostController);
+//# sourceMappingURL=post.controller.js.map
